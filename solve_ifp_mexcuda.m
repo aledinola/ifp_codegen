@@ -8,6 +8,9 @@ function [V,policy_idx] = solve_ifp_mexcuda(n_a,n_z,a_grid,z_grid,pi_z,Params,vf
 %   - utility function pre-defined (no branching in iterations)
 % TODO:
 %   - Precompute util_fun(a',a,z) before the VFI while loop
+% REFERENCES:
+%   - Code BueraShin_gpuarray
+%   - Code BueraShin final
 
 %% Parameters
 
