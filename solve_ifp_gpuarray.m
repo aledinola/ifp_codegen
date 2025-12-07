@@ -51,7 +51,7 @@ while err>tol && iter<=maxiter
 
     if verbose==1
         if mod(iter,20)==0 || iter == 1
-            fprintf("Iter %4d: err = %.8e\n", iter, err);
+            fprintf("Iter %4d: err = %f \n", iter, err);
         end
     end
 

@@ -8,7 +8,7 @@ clear; clc; close all;
 %% Set parameters
 
 % Size of the grids
-n_a = 1000;
+n_a = 500;
 n_z = 11;
 
 % Numerical parameters
@@ -70,8 +70,8 @@ fprintf('  MEX-CUDA implementation : %8.4f seconds\n', time_mex);
 fprintf('  Speedup (MEX / gpuArray): %8.2f x\n', time_gpu / time_mex);
 
 fprintf('\nAccuracy (max abs. errors):\n');
-fprintf('  max |V_gpu - V_mex|      : %8.3e\n', errV);
-fprintf('  max |P_gpu - P_mex|      : %8.3e\n', errP);
+fprintf('  max |V_gpu - V_mex|      : %8.16f\n', errV);
+fprintf('  max |P_gpu - P_mex|      : %d    \n', errP);
 fprintf('=========================================\n\n');
 
 %% Policy functions in values
@@ -83,5 +83,13 @@ pol_vals_c = (1+Params.r)*a_grid+Params.w*z_grid'-pol_vals_a;
 figure; plot(a_grid, V);        title("Value function V(a,z)");
 figure; plot(a_grid, pol_vals_a); title("Policy a'(a,z)");
 figure; plot(a_grid, pol_vals_c); title("Policy c(a,z)");
+
+figure
+plot(a_grid, a_grid, '--')
+hold on
+plot(a_grid, pol_vals_a(:,1))
+hold on
+plot(a_grid, pol_vals_a(:,n_z) )
+title("Policy a'(a,z)");
 
 
