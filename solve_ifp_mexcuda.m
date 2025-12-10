@@ -72,8 +72,8 @@ while iter < maxiter && diff > tol
                         best_val = val;
                         best_iap = iap;
                     end
-                else
-                    break
+                %else
+                %    break
                 end
             end
 
